@@ -7,6 +7,7 @@ type Tiger struct {
 	ChatID     int64     `db:"chat_id"`
 	UserID     int64     `db:"user_id"`
 	Stripes    int64     `db:"stripes"`
+	Username   string    `db:"username"`
 	CreatedAt  time.Time `db:"created_at"`
 	UpdatedAt  time.Time `db:"updated_at"`
 	EnlargedAt time.Time `db:"enlarged_at"`

@@ -6,6 +6,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/scukonick/randomtiger/internal/app/handlers/top"
+
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/stdlib"
@@ -50,10 +52,12 @@ func main() {
 
 	getHandler := getter.NewHandler(bot, storage)
 	growHandler := enlarger.NewHandler(bot, storage)
+	topHandler := top.NewHandler(bot, storage)
 
 	router := app.NewRouter(bot)
 	router.AddCmdRoute("get", getHandler)
 	router.AddCmdRoute("enlarge", growHandler)
+	router.AddCmdRoute("top", topHandler)
 
 	a := app.NewApp(bot, router)
 	a.Run()

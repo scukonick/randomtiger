@@ -9,7 +9,8 @@ import (
 )
 
 func (s *Storage) GetTiger(ctx context.Context, chatID, userID int64) (*models.Tiger, error) {
-	q := `SELECT id, chat_id, user_id, stripes, created_at, updated_at, enlarged_at
+	q := `SELECT id, chat_id, user_id, stripes, username, 
+	created_at, updated_at, enlarged_at
 	FROM tigers WHERE chat_id = $1 and user_id = $2`
 
 	resp := &models.Tiger{}

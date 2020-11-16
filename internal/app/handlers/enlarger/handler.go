@@ -12,7 +12,7 @@ import (
 	"github.com/scukonick/randomtiger/internal/app/db/models"
 )
 
-const enlargeCD = 3 * time.Hour
+const enlargeCD = 24 * time.Hour
 
 type Handler struct {
 	bot     *tgbotapi.BotAPI
@@ -33,6 +33,7 @@ func (h *Handler) Handle(msg *tgbotapi.Message) {
 
 	chatID := msg.Chat.ID
 	userID := int64(msg.From.ID)
+	username := msg.From.UserName
 
 	reply := tgbotapi.NewMessage(chatID, msg.Text)
 	reply.ReplyToMessageID = msg.MessageID
@@ -73,7 +74,7 @@ func (h *Handler) Handle(msg *tgbotapi.Message) {
 		stripes = 1
 	}
 
-	err = h.storage.UpdateStripes(ctx, tiger.ID, stripes)
+	err = h.storage.UpdateStripes(ctx, tiger.ID, stripes, username)
 	if err != nil {
 		h.sendErr(reply, err)
 		return

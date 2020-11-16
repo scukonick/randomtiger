@@ -31,6 +31,7 @@ func (g *Handler) Handle(msg *tgbotapi.Message) {
 	defer cancel()
 
 	chatID := msg.Chat.ID
+	username := msg.From.UserName
 	userID := int64(msg.From.ID)
 
 	reply := tgbotapi.NewMessage(chatID, msg.Text)
@@ -42,7 +43,7 @@ func (g *Handler) Handle(msg *tgbotapi.Message) {
 		reply.Text = fmt.Sprintf("У тебя уже есть тигр, кол-во полосок: %d", tiger.Stripes)
 	case errors.Is(err, models.ErrNotFound):
 		stripes := rand.Int63n(5) + 1
-		err = g.storage.CreateTiger(ctx, chatID, userID, stripes)
+		err = g.storage.CreateTiger(ctx, chatID, userID, stripes, username)
 		if err != nil {
 			reply.Text = "Что-то пошло не так, сорян"
 			break

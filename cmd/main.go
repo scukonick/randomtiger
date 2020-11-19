@@ -6,6 +6,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/scukonick/randomtiger/internal/app/handlers/gipher"
+
+	"github.com/scukonick/giphy"
+
 	"github.com/scukonick/randomtiger/internal/app/handlers/top"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
@@ -37,6 +41,8 @@ func main() {
 		log.Fatal(err)
 	}
 
+	giphyClient := giphy.NewClient()
+
 	nativeDB := stdlib.OpenDB(*connConfig)
 	database := sqlx.NewDb(nativeDB, "pgx")
 
@@ -53,11 +59,13 @@ func main() {
 	getHandler := getter.NewHandler(bot, storage)
 	growHandler := enlarger.NewHandler(bot, storage)
 	topHandler := top.NewHandler(bot, storage)
+	gipherHandler := gipher.NewHandler(bot, giphyClient)
 
 	router := app.NewRouter(bot)
 	router.AddCmdRoute("get", getHandler)
 	router.AddCmdRoute("enlarge", growHandler)
 	router.AddCmdRoute("top", topHandler)
+	router.AddCmdRoute("gif", gipherHandler)
 
 	a := app.NewApp(bot, router)
 	a.Run()

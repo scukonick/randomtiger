@@ -26,11 +26,16 @@ github.com/jackc/pgx/v4/stdlib
 ## explicit
 github.com/jmoiron/sqlx
 github.com/jmoiron/sqlx/reflectx
+# github.com/pkg/errors v0.9.1
+## explicit
+# github.com/scukonick/giphy v0.0.1
+## explicit
+github.com/scukonick/giphy
+# github.com/stretchr/testify v1.6.1
+## explicit
 # github.com/technoweenie/multipartstreamer v1.0.1
 ## explicit
 github.com/technoweenie/multipartstreamer
-# go.octolab.org v0.5.4
-## explicit
 # golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897
 ## explicit
 golang.org/x/crypto/pbkdf2
@@ -53,3 +58,6 @@ golang.org/x/text/width
 ## explicit
 golang.org/x/xerrors
 golang.org/x/xerrors/internal
+# google.golang.org/appengine v1.6.7
+## explicit
+# github.com/peterhellberg/giphy => ../giphy

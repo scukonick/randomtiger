@@ -12,7 +12,7 @@ import (
 	"github.com/scukonick/randomtiger/internal/app/db/models"
 )
 
-const enlargeCD = 24 * time.Hour
+const enlargeCD = 18 * time.Hour
 
 type Handler struct {
 	bot     *tgbotapi.BotAPI

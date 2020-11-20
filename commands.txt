@@ -1,3 +1,4 @@
 get - Get Your Tiger
 enlarge - Enlarge your tiger
 top - Top of tigers
+gif - Show gif with a tiger

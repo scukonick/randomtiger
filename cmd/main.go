@@ -59,7 +59,7 @@ func main() {
 	getHandler := getter.NewHandler(bot, storage)
 	growHandler := enlarger.NewHandler(bot, storage)
 	topHandler := top.NewHandler(bot, storage)
-	gipherHandler := gipher.NewHandler(bot, giphyClient)
+	gipherHandler := gipher.NewHandler(bot, giphyClient, storage)
 
 	router := app.NewRouter(bot)
 	router.AddCmdRoute("get", getHandler)

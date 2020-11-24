@@ -74,7 +74,7 @@ func (h *Handler) Handle(msg *tgbotapi.Message) {
 		stripes = 1
 	}
 
-	err = h.storage.UpdateStripes(ctx, tiger.ID, stripes, username)
+	err = h.storage.EnlargeStripes(ctx, tiger.ID, stripes, username)
 	if err != nil {
 		h.sendErr(reply, err)
 		return

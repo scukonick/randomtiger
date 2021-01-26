@@ -36,6 +36,11 @@ func main() {
 		log.Panic(err)
 	}
 
+	x := 55
+	x = x
+	a := []string{}
+	a = a
+
 	connConfig, err := pgx.ParseConfig("user=tiger password=tiger host=127.0.0.1 port=5432 dbname=tiger sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
@@ -67,6 +72,6 @@ func main() {
 	router.AddCmdRoute("top", topHandler)
 	router.AddCmdRoute("gif", gipherHandler)
 
-	a := app.NewApp(bot, router)
-	a.Run()
+	ap := app.NewApp(bot, router)
+	ap.Run()
 }

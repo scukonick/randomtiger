@@ -56,6 +56,9 @@ func main() {
 		panic(err)
 	}
 
+	s := 123
+	s = s
+
 	//bot.Debug = true
 	log.Printf("autorized with: %s", bot.Self.UserName)
 

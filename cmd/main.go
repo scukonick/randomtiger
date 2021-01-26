@@ -72,6 +72,10 @@ func main() {
 	router.AddCmdRoute("top", topHandler)
 	router.AddCmdRoute("gif", gipherHandler)
 
+	// new issue, hey linter!
+	j := 123
+	j = j
+
 	ap := app.NewApp(bot, router)
 	ap.Run()
 }

@@ -76,6 +76,9 @@ func main() {
 	j := 123
 	j = j
 
+	// second issue, how do you like that
+	database.Ping()
+
 	ap := app.NewApp(bot, router)
 	ap.Run()
 }

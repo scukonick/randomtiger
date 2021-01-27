@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      #- uses: scukonick/lint-action@main
       - run: git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
       - run: git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
-      - run: git branch -a
+      - name: running lint
+        uses: scukonick/lint-action@main

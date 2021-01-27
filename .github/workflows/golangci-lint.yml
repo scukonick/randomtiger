@@ -14,4 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       #- uses: scukonick/lint-action@main
+      - run: git pull
       - run: git branch -a

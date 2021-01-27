@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       #- uses: scukonick/lint-action@main
-      - run: git fetch ${{ github.head_ref }}
-      - run: git fetch ${{ github.base_ref }}
+      - run: git fetch origin/${{ github.head_ref }}
+      - run: git fetch origin/${{ github.base_ref }}
       - run: git branch -a
